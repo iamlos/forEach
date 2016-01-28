@@ -1,44 +1,48 @@
-# forEach
+### forEach
 
-```
-var list = [1,2,3];
+There are so many libraries that do this sort of thing – this is my preferred syntax.
 
-// This runs in series
-forEach(list, function(number, next){
+**Series**
+
+```javascript
+forEach([1,2,3], function(number, next){
 
   // Do something, async or not
-
   next();
 
 }, function(err){
-
   // Everything finished
-
 });
+```
 
-// This runs in parallel
-forEach.parallel(list, function(number, next){
+**Parallel**
+
+```javascript
+
+var each = forEach.parallel(10);
+
+each([1,2,3], function(number, next){
 
   // Do something, async or not
-
   next();
 
 }, function(err){
-
   // Everything done
 });
+```
 
-// This runs with parallel, with a cap
+**Parallel with cap**
 
-forEach.parallel(10)(list, function(number, next){
+```javascript
 
+var each = forEach.parallel(10);
+
+each([1,2,3], function(number, next){
 
   // Do something, async or not
-
   next();
 
 }, function(err){
-
   // Everything done
 });
 ```
