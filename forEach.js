@@ -3,8 +3,6 @@ var type = require('./type');
 var callOnce = require('./callOnce');
 var _ = require('lodash');
 
-// how can we expand this to have error handling?
-
 function forEach (array, doThis, done) {
 
   if (type(array) === 'object')
@@ -104,116 +102,5 @@ function forEachPair (array, doThis, done) {
 
   if (done) return done();
 }
-
-
-// (function tests() {
-
-//   var each = forEach.multi(2);
-
-//   var list = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i'];
-
-//   console.log('here');
-
-//   each(list, function(num, next){
-
-//     console.log(num + ' starting process...');
-
-//     setTimeout(function(){
-
-//     console.log(num + ' process complete...');
-//     next();
-
-//     }, Math.random()*1000 + 1000);
-
-//   }, function(){
-//     console.log('All done!');
-//   });
-
-// }());
-
-
-// (function tests () {
-
-//   var assert = require('assert');
-
-//   var init = [{foo: 'bar'},{foo: 'baz'},{foo: 'bat'}];
-//   var wasDoneCalled = false;
-//   var totalCalled = 0;
-
-//   forEach(init, function(obj, next){
-
-//     obj.foo = 'woo';
-//     totalCalled++;
-
-//     next();
-
-//   }, function () {
-//     wasDoneCalled = true;
-//     check(init);
-//   });
-
-//   var called = 0;
-
-//   forEach(init, function(obj, next){
-//     called++;
-//     next();next();
-//   });
-
-//   forEach.parallel([1,2,3,4,5], function(number, next){
-
-//     var delay = Math.floor(Math.random()*1000);
-
-//     console.log(number + ' waits for a delay of ' + delay);
-
-//     setTimeout(function() {
-//       console.log(number);
-//       next();
-//     }, delay);
-
-//   }, function(){
-//     console.log('----> this is only done all the nexts are called...');
-//   });
-
-//   function check() {
-
-//     assert.deepEqual(totalCalled, init.length);
-//     assert.deepEqual(wasDoneCalled, true);
-
-//     for (var i in init)
-//       assert.deepEqual(init[i], {foo: 'woo'});
-//   }
-
-// }());
-
-// var foo = [{foo: 'bar'},{foo: 'baz'},{foo: 'bat'}];
-
-// forEach(foo, function(number, next){
-
-//   console.log('Inside this! ' + number.foo);
-
-//   return setTimeout(next, 100);
-
-// }, function () {
-
-
-//   console.log('All done!');
-//   objectTest();
-// });
-
-// function objectTest () {
-
-//   forEach({bar: 1, bam: 2, bat: 3}, function(key, value, next){
-
-//     console.log('Key is ' + key);
-//     console.log('Value is ' + value);
-
-//     return setTimeout(next, 100);
-
-//   }, function () {
-
-//     console.log('Object test of this done!');
-//   });
-// }
-
 
 module.exports = forEach;
