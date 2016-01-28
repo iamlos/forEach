@@ -1,6 +1,6 @@
 ### forEach
 
-There are so many libraries that do this sort of thing – this is my preferred syntax.
+There are so many libraries that do this sort of thing – this is just my preferred syntax. If pass an error to next, everything stops and the final callback is invoked with whatever error you passed.
 
 **Series**
 
@@ -8,7 +8,7 @@ There are so many libraries that do this sort of thing – this is my preferred 
 forEach([1,2,3], function(number, next){
 
   // Do something, async or not
-  next();
+  next(err);
 
 }, function(err){
   // Everything finished
@@ -24,7 +24,7 @@ var each = forEach.parallel;
 each([1,2,3], function(number, next){
 
   // Do something, async or not
-  next();
+  next(err);
 
 }, function(err){
   // Everything done
@@ -33,7 +33,7 @@ each([1,2,3], function(number, next){
 
 **Parallel with cap**
 
-*This is useful for running a reasonable number of network requests in parallel.*
+This is useful for running a reasonable number of network requests in parallel.
 
 ```javascript
 
@@ -42,7 +42,7 @@ var each = forEach.parallel(10);
 each([1,2,3], function(number, next){
 
   // Do something, async or not
-  next();
+  next(err);
 
 }, function(err){
   // Everything done
