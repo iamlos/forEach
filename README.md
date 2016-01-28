@@ -19,7 +19,7 @@ forEach([1,2,3], function(number, next){
 
 ```javascript
 
-var each = forEach.parallel(10);
+var each = forEach.parallel;
 
 each([1,2,3], function(number, next){
 
@@ -32,6 +32,8 @@ each([1,2,3], function(number, next){
 ```
 
 **Parallel with cap**
+
+*This is useful for running a reasonable number of network requests in parallel.*
 
 ```javascript
 
