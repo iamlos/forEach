@@ -7,38 +7,30 @@ var list = [1,2,3];
 forEach(list, function(number, next){
 
   // Do something, async or not
-
   next();
 
-}, function(err){
-
+}, function(err) {
   // Everything finished
-
 });
 
 // This runs in parallel
 forEach.parallel(list, function(number, next){
 
   // Do something, async or not
-
   next();
 
-}, function(err){
-
-  // Everything done
+}, function(err) {
+  // Everything finished
 });
 
 // This runs with parallel, with a cap
 
 forEach.parallel(10)(list, function(number, next){
 
-
   // Do something, async or not
-
   next();
 
-}, function(err){
-
-  // Everything done
+}, function(err) {
+  // Everything finished
 });
 ```
