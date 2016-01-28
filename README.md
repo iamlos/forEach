@@ -2,6 +2,8 @@
 
 There are so many libraries that do this sort of thing – this is just my preferred syntax. If pass an error to next, everything stops and the final callback is invoked with whatever error you passed.
 
+I like it because it's easy to switch between series and parallel. It also supports iteration of lists and objects.
+
 **Series**
 
 ```javascript
